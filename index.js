@@ -19,12 +19,12 @@ app.get('/api', (req, res) => {
   res.json({ message: 'The api is UP' })
 })
 
-// fallback endpoint that will just send back index.html with the CRA
+// fallback endpoint that will just send back index.html with the CRA.  Needs to be last route.  probably in server.js usually
 app.get("*", (req, res) => {
     // send back the index.html contained inside client/build
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
   })
-  
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
